@@ -35,4 +35,3 @@ C:\taiLieu\Lap_Trinh_Web\BTL_ASP\BTL\obj\Debug\BTL.csproj.CoreCompileInputs.cach
 C:\taiLieu\Lap_Trinh_Web\BTL_ASP\BTL\obj\Debug\BTL.csproj.CopyComplete
 C:\taiLieu\Lap_Trinh_Web\BTL_ASP\BTL\obj\Debug\BTL.dll
 C:\taiLieu\Lap_Trinh_Web\BTL_ASP\BTL\obj\Debug\BTL.pdb
-C:\taiLieu\Lap_Trinh_Web\BTL_ASP\BTL\obj\Debug\BTL.csprojAssemblyReference.cache

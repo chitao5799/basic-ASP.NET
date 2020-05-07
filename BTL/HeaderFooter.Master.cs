@@ -13,15 +13,26 @@ namespace BTL
         protected void Page_Load(object sender, EventArgs e)
         {
            
-                get10NameTypeDH();
-                List<clsGioHang> arr = (List<clsGioHang>)Session["giohang"];
-                int soLuong=0;
-                foreach (clsGioHang sp in arr)
-                {
-                    soLuong += int.Parse(sp.number);
-                }
-                TotalWatchBuy.Text = soLuong.ToString();
-                
+            get10NameTypeDH();
+            List<clsGioHang> arr = (List<clsGioHang>)Session["giohang"];
+            int soLuong=0;
+            foreach (clsGioHang sp in arr)
+            {
+                soLuong += int.Parse(sp.number);
+            }
+            TotalWatchBuy.Text = soLuong.ToString();
+
+            if (Session["loginAccount"].ToString() != "-1")
+            {
+                loginLogout.InnerHtml = "<a href=\" #\">" + Session["userName"].ToString() + "</a><span id =\"chia\">|</span ><a href=\"DangXuat.aspx\" style=\"color: #FFF200;\">Đăng xuất</a> ";
+
+            }
+            else
+            {
+                loginLogout.InnerHtml = "<a href=\" /DangNhap.aspx\">Đăng nhập</a><span id =\"chia\">|</span><a href =\"/DangKy.aspx\"> Đăng ký </a> ";
+
+            }
+
         }
         protected void btnsearch_Click(object sender, EventArgs e)
         {
@@ -34,5 +45,6 @@ namespace BTL
             rptDropdownMenu.DataSource = dh.get10TypeDH();
             rptDropdownMenu.DataBind();
         }
+     
     }
 }

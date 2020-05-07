@@ -40,10 +40,8 @@
                     </div>
                 </li>
                 <li>
-                    <div class="loginLogout">
-                        <a href="#">Đăng nhập</a>
-                        <span id="chia">|</span>
-                        <a href="#">Đăng ký</a>
+                    <div class="loginLogout" id="loginLogout" runat="server">
+                        
                     </div>
                 </li>
             </ul>

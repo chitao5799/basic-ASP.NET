@@ -14,7 +14,7 @@ namespace BTL
         }
         protected void Session_Start(object sender, EventArgs e)
         {
-            Session["login"] = 0;
+            Session["loginAccount"] = -1;
             Session["giohang"] = new List<clsGioHang>();
             //Session.Timeout = 60; // 60 is number of minutes
         }
