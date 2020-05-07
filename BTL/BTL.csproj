@@ -213,6 +213,7 @@
     <Compile Include="HeaderFooter.Master.designer.cs">
       <DependentUpon>HeaderFooter.Master</DependentUpon>
     </Compile>
+    <Compile Include="KetNoiSQL\clsComment.cs" />
     <Compile Include="KetNoiSQL\clsDHforDisplay.cs" />
     <Compile Include="KetNoiSQL\connectSQL.cs" />
     <Compile Include="KetNoiSQL\controlAdmin.cs" />
@@ -240,7 +241,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="scripts\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

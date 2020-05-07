@@ -39,7 +39,9 @@ namespace BTL
                 {
                     Session["loginAccount"] = txtAccount.Text.Trim();
                     Session["userName"] = tb.Rows[0]["userName"];
-                    Response.Redirect("/TrangChu.aspx");
+                    Session["userID"] = tb.Rows[0]["userID"];
+                    //Response.Redirect("TrangChu.aspx");
+                    Response.Redirect(Session["urlTruocLogin"].ToString());
                 }
                 else
                 {

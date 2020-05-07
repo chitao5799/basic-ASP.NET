@@ -14,7 +14,8 @@ namespace BTL
 
             Session["loginAccount"] = -1;
             Session["userName"] = "";
-            Response.Redirect("/TrangChu.aspx");
+            Session["userID"] = -1;
+            Response.Redirect(Session["url"].ToString());
         }
     }
 }

@@ -12,19 +12,33 @@ namespace BTL
     {
         string id = "";
         clsDHforDisplay dh = new clsDHforDisplay();
+        clsComment cm = new clsComment();
         protected void Page_Load(object sender, EventArgs e)
         {
             id = Request["NameDHid"];
-                if(id!=null)
+            if (id != null)
+            {
                 LoadDetailProduct();
-                else {
+                loadComments();
+            }
+             else {
                     Response.Write("<script>alert('rất tiếc đã xảy ra lỗi');<script/>");
                     Response.Redirect("/");
                     }
             
         }
        
-        
+        void loadComments()
+        {
+            DataTable dt = new DataTable();
+            dt = cm.getCommentsByWatchID(int.Parse(id));
+            if (dt.Rows.Count > 0)
+            {
+                listComments.DataSource = dt;
+                listComments.DataBind();
+            }
+           
+        }
         void LoadDetailProduct()
         {
             DataTable dt = new DataTable();
@@ -58,6 +72,8 @@ namespace BTL
                 ltThuongHieu2.Text = dt.Rows[0]["xuatXu"].ToString();
                 ltThuongHieuChiTiet.Text = dt.Rows[0]["thuongHieu"].ToString();
                 btnMua.CommandArgument = dt.Rows[0]["chiTietDHid"].ToString();
+                idWatch = int.Parse(dt.Rows[0]["chiTietDHid"].ToString());
+
                 rptDHLienQuan.DataSource = dh.get6DHbyTypeID(int.Parse(dt.Rows[0]["typeDHid"].ToString()));
                 rptDHLienQuan.DataBind();
             }
@@ -103,6 +119,28 @@ namespace BTL
             }
 
             Page.Response.Redirect(Page.Request.Url.ToString(), true);
+        }
+        int idWatch = -1;
+        protected void btnAddComment_Click(object sender, EventArgs e)
+        {
+            //if (String.IsNullOrEmpty(txtAddComment.Text.Trim())) { 
+            //((Button)sender).Attributes["onclick"] = "return alert(' Bạn chưa nhập comment')";
+            //    return;
+            //}
+            //Page.ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Bạn phải nhập comment');",false);
+            //btnAddComment.Attributes.Add("onclick", "alert('" + "lỗi" + "');return false;");
+            //    Session["userID"];
+            if (int.Parse(Session["userID"].ToString()) != -1)
+            {
+                cm.Insert(int.Parse(Session["userID"].ToString()), idWatch, DateTime.Now, txtAddComment.Text.Trim(), -1);
+            }
+            else
+            {
+                Response.Write("<script>alert('Bạn phải đăng nhập để thêm bình luận');</script>");
+                return;
+            }
+
+           Response.Redirect(Request.Url.ToString());
         }
     }
 }

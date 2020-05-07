@@ -8,7 +8,7 @@
 
     #WrapDetailWatch .container a {
         color: black;
-        padding-left: 20px;
+        /* padding-left: 20px; */
     }
 
 #WrapDetailWatch .head_Title {
@@ -16,7 +16,6 @@
     width: 100%;
     height: 30px;
     border-bottom: 1px solid #B2B2B2;
-
 }
 
     #WrapDetailWatch .head_Title span {
@@ -169,6 +168,7 @@
     padding-top: 20px;
     width: 50px;
     float: left;
+    margin-right: 13px;
 }
 
 .post_comment button {
@@ -184,7 +184,7 @@
     width: 60px;
     border-bottom: 1px solid pink;
     float: left;
-    margin-top: 20px;
+    margin-top: 10px;
     /* padding-bottom: 10px; */
 }
 
@@ -194,12 +194,93 @@
     /* margin-left: 55px; */
 }
 
-    .text_comment input {
-        height: 50px;
-        width: 740px;
-        font-size: 120%;
+    .text_comment .input {
+        height: 31px;
+        width: 727px;
+        font-size: 100%;
         /* margin-top: -20px; */
         border: 1px solid pink;
+    }
+
+.btnAddComment {
+    height: 34px;
+    width: 68px;
+    background-color: #00bcd4;
+    border: 1px solid #4a9ac8;
+    cursor: pointer;
+    color: white;
+}
+
+.wrapper-comments {
+    clear: both; /* margin-top: 10px; */
+    padding-top: 15px;
+    width: 100%;
+}
+
+    .wrapper-comments .comment-item {
+        width: 95%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        /* display: block; */
+    }
+
+    .wrapper-comments .comment {
+        display: flex;
+        flex-direction: row; /* align-content: flex-start; */ /* align-items: flex-start; */
+    }
+
+    .wrapper-comments .anhUser {
+        width: 50px;
+        height: 50px;
+        /* border-radius: 50%; */
+        overflow: hidden;
+        margin-right: 15px;
+    }
+
+    .wrapper-comments .nameUser {
+        font-family: sans-serif;
+        color: black;
+        font-weight: 600;
+        font-size: 18px;
+    }
+
+    .wrapper-comments .anhUser img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .wrapper-comments .contain-comment {
+        width: calc(100% - 65px);
+    }
+
+    .wrapper-comments .comment-content {
+        /* display: block; */
+        margin: 0px 0px;
+        margin-top: 5px;
+        font-family: sans-serif;
+        text-align: justify;
+ 
+    }
+
+    .wrapper-comments .btn {
+        color: blue !important;
+        margin-right: 10px;
+    }
+
+    .wrapper-comments .btns {
+        margin-left: 65px;
+        margin-top: 5px;
+        font-size: 15px;
+        font-family: sans-serif;
+    }
+
+    .wrapper-comments .date {
+    }
+
+    .wrapper-comments .btnLike {
+    }
+
+    .wrapper-comments .btnReply {
     }
 
 #WrapDetailWatch .gioiThieu_Title {
@@ -243,9 +324,11 @@
     grid-template-columns: repeat(6, 16%);
     justify-content: space-between;
 }
+
 #WrapDetailWatch .container .DHKhac a {
     padding-left: 0px;
 }
+
 .item-DHKhac {
     text-align: center;
     /* width: 200px; */

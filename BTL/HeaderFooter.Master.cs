@@ -22,17 +22,23 @@ namespace BTL
             }
             TotalWatchBuy.Text = soLuong.ToString();
 
+            if(HttpContext.Current.Request.Url.AbsolutePath != "/DangNhap.aspx")
+            {
+                if (Request.UrlReferrer != null)
+                    Session["urlTruocLogin"] = Request.UrlReferrer.ToString();
+            }
+
             if (Session["loginAccount"].ToString() != "-1")
             {
                 loginLogout.InnerHtml = "<a href=\" #\">" + Session["userName"].ToString() + "</a><span id =\"chia\">|</span ><a href=\"DangXuat.aspx\" style=\"color: #FFF200;\">Đăng xuất</a> ";
-
+               Session["url"] = Page.Request.Url.ToString();
             }
             else
             {
                 loginLogout.InnerHtml = "<a href=\" /DangNhap.aspx\">Đăng nhập</a><span id =\"chia\">|</span><a href =\"/DangKy.aspx\"> Đăng ký </a> ";
-
+              
             }
-
+            
         }
         protected void btnsearch_Click(object sender, EventArgs e)
         {
