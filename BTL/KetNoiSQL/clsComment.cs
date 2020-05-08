@@ -32,5 +32,23 @@ namespace BTL.KetNoiSQL
             return connectSQL.GetData(cmd);
 
         }
+        public void InsertUserLike(int userId, int commentID)
+        {
+            SqlCommand sqlCom;
+            sqlCom = new SqlCommand("insert into userLikeComment values(@userid,@comid)");
+            sqlCom.CommandType = CommandType.Text;
+            sqlCom.Parameters.AddWithValue("@userid", userId);
+            sqlCom.Parameters.AddWithValue("@comid", commentID);
+            connectSQL.ExecuteNoneQuery(sqlCom);
+        }
+        public void UserBoLike(int userId, int commentID)
+        {
+            SqlCommand sqlCom;
+            sqlCom = new SqlCommand("DELETE from userLikeComment where  userID_pk=@userid and commentID_pk=@comid");
+            sqlCom.CommandType = CommandType.Text;
+            sqlCom.Parameters.AddWithValue("@userid", userId);
+            sqlCom.Parameters.AddWithValue("@comid", commentID);
+            connectSQL.ExecuteNoneQuery(sqlCom);
+        }
     }
 }

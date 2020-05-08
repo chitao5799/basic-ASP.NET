@@ -238,6 +238,15 @@ namespace BTL {
         protected global::System.Web.UI.WebControls.Literal ltThuongHieuChiTiet;
         
         /// <summary>
+        /// ltSoluongComment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltSoluongComment;
+        
+        /// <summary>
         /// txtAddComment control.
         /// </summary>
         /// <remarks>
@@ -245,15 +254,6 @@ namespace BTL {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAddComment;
-        
-        /// <summary>
-        /// RequiredFieldtxtAddComment control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldtxtAddComment;
         
         /// <summary>
         /// btnAddComment control.
@@ -281,14 +281,5 @@ namespace BTL {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rptDHLienQuan;
-        
-        /// <summary>
-        /// ValidationSummary1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
     }
 }

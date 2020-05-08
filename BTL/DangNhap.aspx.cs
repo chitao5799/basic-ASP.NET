@@ -40,9 +40,13 @@ namespace BTL
                     Session["loginAccount"] = txtAccount.Text.Trim();
                     Session["userName"] = tb.Rows[0]["userName"];
                     Session["userID"] = tb.Rows[0]["userID"];
-                    //Response.Redirect("TrangChu.aspx");
-                    Response.Redirect(Session["urlTruocLogin"].ToString());
-                }
+                    string url =Session["urlTruocLogin"].ToString();
+                    if(url!="" && url.IndexOf("/DangNhap.aspx")==-1 && url.IndexOf("/DangKy.aspx")==-1)
+                       Response.Redirect(url);
+                    else
+                      Response.Redirect("TrangChu.aspx");
+                   
+                } 
                 else
                 {
                     Response.Write("<script>alert('Tài khoản hoặc mật khẩu không chính xác');</script>");

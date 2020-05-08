@@ -34,10 +34,11 @@ namespace BTL
             dt = cm.getCommentsByWatchID(int.Parse(id));
             if (dt.Rows.Count > 0)
             {
+                ltSoluongComment.Text = dt.Rows.Count.ToString();
                 listComments.DataSource = dt;
                 listComments.DataBind();
             }
-           
+            else ltSoluongComment.Text ="0";
         }
         void LoadDetailProduct()
         {
@@ -130,8 +131,14 @@ namespace BTL
             //Page.ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Bạn phải nhập comment');",false);
             //btnAddComment.Attributes.Add("onclick", "alert('" + "lỗi" + "');return false;");
             //    Session["userID"];
+            
             if (int.Parse(Session["userID"].ToString()) != -1)
             {
+                if (string.IsNullOrEmpty(txtAddComment.Text.Trim()))
+                {
+                    Response.Write("<script>alert('Bình luận không được để trống');</script>");
+                    return;
+                }
                 cm.Insert(int.Parse(Session["userID"].ToString()), idWatch, DateTime.Now, txtAddComment.Text.Trim(), -1);
             }
             else
@@ -141,6 +148,38 @@ namespace BTL
             }
 
            Response.Redirect(Request.Url.ToString());
+        }
+        protected void btnLike_Click(object sender, EventArgs e)
+        {
+            //RequiredFieldtxtAddComment.IsValid = true;
+            
+
+        }
+
+        int commentID = -1;
+        protected void listComments_ItemCommand(object sender, ListViewCommandEventArgs e)
+        {
+            switch (e.CommandName.ToString())
+            {
+                case "Like":
+                    commentID = int.Parse(e.CommandArgument.ToString());
+                    try
+                    {
+                        if (int.Parse(Session["userID"].ToString())!=-1)
+                            cm.InsertUserLike(int.Parse(Session["userID"].ToString()), commentID);
+                        else
+                        {
+                            Response.Write("<script>alert('Bạn phải đăng nhập để like bình luận');</script>");
+                            return;
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        //khi user mà bấm like rồi mà bấm like lần nữa là bỏ like comment đó
+                        cm.UserBoLike(int.Parse(Session["userID"].ToString()), commentID);
+                    }
+                    break;
+            }
         }
     }
 }

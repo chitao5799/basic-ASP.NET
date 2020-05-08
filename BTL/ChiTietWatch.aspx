@@ -1,12 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HeaderFooter.Master" AutoEventWireup="true" CodeBehind="ChiTietWatch.aspx.cs" Inherits="BTL.ChiTietWatch" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="style/ChiTietWatch.css" rel="stylesheet" />
-    <script type="text/javascript" src="scripts/jquery.min.js"></script>
+   <%-- <script type="text/javascript" src="scripts/jquery.min.js"></script>
     <script  src="scripts/jquery-ui.min.js" type="text/javascript"></script>
-    <link href="style/jquery-ui.css"  rel="stylesheet" type="text/css" />
+    <link href="style/jquery-ui.css"  rel="stylesheet" type="text/css" />--%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <script type="text/javascript">
+     <%--<script type="text/javascript">
         function WebForm_OnSubmit() {
             if (typeof (ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) {
                 $("#validation_dialog").dialog({
@@ -23,7 +23,7 @@
             }
             return true;
         }
-    </script>
+    </script>--%>
    <div class="wrapper" id="WrapDetailWatch"  style="width:92vw;max-width: 1257px;margin: 0 auto;">
     <div class="container">
 		<div class="head_Title">
@@ -121,12 +121,12 @@
 				<asp:Literal ID="ltThuongHieuChiTiet" runat="server"></asp:Literal>
 			</div>
 			<div class="wrap_comment">
-				<div class="number_comment"><b>0 Comments</b></div>
+				<div class="number_comment"><b><asp:Literal ID="ltSoluongComment" runat="server"></asp:Literal> Comments</b></div>
 				<div class="img_comment"><img src="#"/></div>
 				<div class="text_comment">
                     <%--<input type="text" placeholder="Add a comment..." />--%>
                     <asp:TextBox ID="txtAddComment" placeholder="     Thêm bình luận" CommandArgument="" runat="server"  CssClass="text input"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldtxtAddComment" Display="None" ControlToValidate="txtAddComment" runat="server" ErrorMessage="Bạn phải nhập comment"></asp:RequiredFieldValidator>
+                    <%--<asp:RequiredFieldValidator ID="RequiredFieldtxtAddComment" Display="None" ControlToValidate="txtAddComment" runat="server" ErrorMessage="Bạn phải nhập comment"></asp:RequiredFieldValidator>--%>
 				</div>
 				<div class="post_comment">
                     <%--<button type="button">Post</button>--%>
@@ -134,7 +134,7 @@
 				</div>
 		   </div>
             <div class="wrapper-comments">
-                <asp:ListView ID="listComments" runat="server">
+                <asp:ListView ID="listComments" runat="server" OnItemCommand="listComments_ItemCommand">
                     <ItemTemplate>
                          <div class="comment-item">
                             <div class="comment">
@@ -147,11 +147,11 @@
                                     <p class="comment-content"><asp:Literal ID="ltCommentContent" runat="server" Text='<%#:Eval("content") %>'></asp:Literal></p>
                                </div>
                             </div>
-                            <div class="btns">
-                                <span><asp:Literal ID="ltSoLike" runat="server"></asp:Literal></span><%--<a href="#" class="btnLike btn">like</a>--%>
-                                <asp:LinkButton ID="lnkLike" CssClass="btnLike btn" runat="server" CommandName="Like" CommandArgument='<%#Eval("commentID") %>'>Like</asp:LinkButton>
+                            <div class="btns"><%--ID="lnkLike"--%>
+                                <span><asp:Literal ID="ltSoLike"  runat="server"></asp:Literal></span><%--<a href="#" class="btnLike btn">like</a>--%>
+                                <asp:LinkButton ID="lnkLike" CssClass="btnLike btn" runat="server" CommandName="Like" CommandArgument='<%#Eval("commentID") %>' OnClick="btnLike_Click">Like</asp:LinkButton> <%--CausesValidation="False" --%>
                                 <%--<a href="#" class="btnReply btn">reply</a>--%> 
-                                <asp:LinkButton ID="lnkReply" CssClass="btnReply btn" runat="server" CommandName="Reply" CommandArgument='<%#Eval("commentID") %>'>Reply</asp:LinkButton>
+                                <asp:LinkButton ID="lnkReply" CssClass="btnReply btn" runat="server" CommandName="Reply" CommandArgument='<%#Eval("commentID") %>' CausesValidation="False">Reply</asp:LinkButton>
                                 <span class="date"><asp:Literal ID="ltDateComment" runat="server" Text='<%#:Eval("createDate") %>'></asp:Literal></span>
                             </div>
                         </div>
@@ -185,8 +185,8 @@
     </div>
 
 
-    <div id="validation_dialog" style="display: none">
+   <%-- <div id="validation_dialog" style="display: none">
         <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
-    </div>
+    </div>--%>
    </div>
 </asp:Content>
