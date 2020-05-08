@@ -24,7 +24,7 @@ namespace BTL
              else {
                     Response.Write("<script>alert('rất tiếc đã xảy ra lỗi');<script/>");
                     Response.Redirect("/");
-                    }
+             }
             
         }
        
@@ -35,6 +35,22 @@ namespace BTL
             if (dt.Rows.Count > 0)
             {
                 ltSoluongComment.Text = dt.Rows.Count.ToString();
+
+                DataTable tb = new DataTable();
+                dt.Columns.Add("soLikeComment", typeof(string));
+                for(int i=0;i<dt.Rows.Count;i++)
+                {
+                    tb = cm.NumberLikeComment(int.Parse(dt.Rows[i]["commentID"].ToString()));
+                    if (tb.Rows.Count > 0)
+                    {
+                        dt.Rows[i]["soLikeComment"] = tb.Rows.Count.ToString() + " - ";
+                    }
+                    else
+                    {
+                        dt.Rows[i]["soLikeComment"] = "";
+                    }
+                }
+
                 listComments.DataSource = dt;
                 listComments.DataBind();
             }
@@ -149,13 +165,10 @@ namespace BTL
 
            Response.Redirect(Request.Url.ToString());
         }
-        protected void btnLike_Click(object sender, EventArgs e)
-        {
-            //RequiredFieldtxtAddComment.IsValid = true;
+       
             
 
-        }
-
+        //RequiredFieldtxtAddComment.IsValid = true;
         int commentID = -1;
         protected void listComments_ItemCommand(object sender, ListViewCommandEventArgs e)
         {
@@ -165,7 +178,7 @@ namespace BTL
                     commentID = int.Parse(e.CommandArgument.ToString());
                     try
                     {
-                        if (int.Parse(Session["userID"].ToString())!=-1)
+                        if (int.Parse(Session["userID"].ToString()) != -1) 
                             cm.InsertUserLike(int.Parse(Session["userID"].ToString()), commentID);
                         else
                         {
@@ -178,8 +191,16 @@ namespace BTL
                         //khi user mà bấm like rồi mà bấm like lần nữa là bỏ like comment đó
                         cm.UserBoLike(int.Parse(Session["userID"].ToString()), commentID);
                     }
+                    Response.Redirect(Request.Url.ToString());
                     break;
+                //case "Reply":
+                //        txtAddComment.Attributes["TextMode"] = "MultiLine";
+                //        txtAddComment.Attributes["Rows"] = "6";
+                //        txtAddComment.Attributes["Wrap"] = "true";
+                        
+                //    break;
             }
+
         }
     }
 }

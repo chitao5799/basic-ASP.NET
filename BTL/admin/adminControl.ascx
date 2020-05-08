@@ -1,6 +1,12 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="adminControl.ascx.cs" Inherits="BTL.admin.adminControl" %>
 <div class="wrapAminLogined">
-    <div class="nameAminLogined">Quản trị viên:<p><%=Session["username"] %></p></div>
+    <div class="nameAminLogined">
+        <div class="warp-pictureAdmin">
+            <img src='/images/<%=Session["avatarAdmin"] %>' alt="" />
+        </div>
+            
+        <p><%=Session["userAdminname"] %></p>
+    </div>
     <div><asp:LinkButton ID="lnkExit" runat="server" OnClick="lnkExit_Click">Thoát</asp:LinkButton></div>
 </div>
 <div class="wrapper" style="width:100%;">

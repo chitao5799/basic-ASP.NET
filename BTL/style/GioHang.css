@@ -19,7 +19,15 @@ background-color: #FFFFFF;
 text-align: center;
 padding-top: 50px;
 }
-
+input.btn.btn-remove {
+    background-color: #f90039c9;
+    border: 1px solid #ff0378;
+    border-radius: 50%;
+    font-size: 22px;
+    width: 40px;
+    height: 40px;
+    color: white;
+}
 .btnBuy {
     height: 40px;
     width: 250px;

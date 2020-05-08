@@ -63,12 +63,22 @@ div#login .buttonlogin {
     display: flex;
     flex-direction: row;
 }
-.nameAminLogined p {
-    margin-left: 8px;
-    color: green;
-    font-size: 20px;
-    margin-top: -4px;
-}
+ .nameAminLogined .warp-pictureAdmin{
+     width:50px;
+     height:50px;
+     border-radius:50%;
+     overflow:hidden;
+ }
+    .nameAminLogined .warp-pictureAdmin img{
+        width:100%;
+        height:100%;
+    }
+    .nameAminLogined p {
+        margin-left: 8px;
+        color: green;
+        font-size: 20px;
+        margin-top: 12px;
+    }
 .wrapperWatch {
     display: flex;
     flex-direction: row;

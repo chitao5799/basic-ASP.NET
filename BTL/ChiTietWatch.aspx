@@ -148,10 +148,10 @@
                                </div>
                             </div>
                             <div class="btns"><%--ID="lnkLike"--%>
-                                <span><asp:Literal ID="ltSoLike"  runat="server"></asp:Literal></span><%--<a href="#" class="btnLike btn">like</a>--%>
-                                <asp:LinkButton ID="lnkLike" CssClass="btnLike btn" runat="server" CommandName="Like" CommandArgument='<%#Eval("commentID") %>' OnClick="btnLike_Click">Like</asp:LinkButton> <%--CausesValidation="False" --%>
+                                <span><asp:Literal ID="ltSoLike"  runat="server" Text='<%#:Eval("soLikeComment") %>'></asp:Literal></span><%--<a href="#" class="btnLike btn">like</a>--%>
+                                <asp:LinkButton ID="lnkLike" CssClass="btnLike btn" runat="server" CommandName="Like" CommandArgument='<%#Eval("commentID") %>' >Like</asp:LinkButton> <%--CausesValidation="False" CausesValidation="False"--%>
                                 <%--<a href="#" class="btnReply btn">reply</a>--%> 
-                                <asp:LinkButton ID="lnkReply" CssClass="btnReply btn" runat="server" CommandName="Reply" CommandArgument='<%#Eval("commentID") %>' CausesValidation="False">Reply</asp:LinkButton>
+                                <asp:LinkButton ID="lnkReply" CssClass="btnReply btn" runat="server" CommandName="Reply" CommandArgument='<%#Eval("commentID") %>' >Reply</asp:LinkButton>
                                 <span class="date"><asp:Literal ID="ltDateComment" runat="server" Text='<%#:Eval("createDate") %>'></asp:Literal></span>
                             </div>
                         </div>

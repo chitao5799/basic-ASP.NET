@@ -33,6 +33,7 @@ namespace BTL
         {
             if (checkInput() == true)
             {
+                //mật khẩu mấu user đầu tiên là 12345
                 DataTable tb = new DataTable();
                 tb = ukh.DangNhap(txtAccount.Text.Trim(), txtPassword.Text.Trim());
                 if (tb.Rows.Count > 0)

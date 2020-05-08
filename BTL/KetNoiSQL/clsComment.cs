@@ -50,5 +50,12 @@ namespace BTL.KetNoiSQL
             sqlCom.Parameters.AddWithValue("@comid", commentID);
             connectSQL.ExecuteNoneQuery(sqlCom);
         }
+        public DataTable NumberLikeComment(int commentID)
+        {
+            string query = "select * from userLikeComment where commentID_pk=" + commentID;
+            SqlCommand cmd = new SqlCommand(query);
+            cmd.CommandType = CommandType.Text;
+            return connectSQL.GetData(cmd);
+        }
     }
 }
