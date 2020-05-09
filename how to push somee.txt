@@ -8,5 +8,8 @@
 + trên local generate script database (gồm cả data)
 + trên host tạo database trống và bấm vào new SQL query 
 + thực hiện coppy từng khối lệnh create Table, và insert vào host để chạy (lưu ý chạy đúng thứ tự, bảng nào là khóa chính của bảng khác 
- thì phải chạy trước). sau khi song có thể thử câu lệnh select trên host để kiểm tra
+ thì phải chạy trước). sau khi song có thể thử câu lệnh select trên host để kiểm tra 
+ ** Nếu trong quá trình thực thi câu lệnh insert ( dữ liệu có các thẻ html - vd như web dùng freetextbox để tạo dữ liệu 1 trường nào đấy ) trên host mà có lỗi (có thể somee 
+tránh bị tấn công XSS,...) thì bỏ dữ liệu đó đi và thay bằng  đoạn text thông thường và chạy query tiếp. Sau khi chạy được web trên host thì vào 
+phần admin của web (nếu có) sửa lại dữ liệu là được.
  
