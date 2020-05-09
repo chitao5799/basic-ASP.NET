@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -9,9 +10,10 @@ namespace BTL.KetNoiSQL
 {
     public class connectSQL
     {
-        static string ConnectionString = "Data Source=DESKTOP-31SUH4V;Initial Catalog=LTWebCoBan;Integrated Security=True";
+       // static string ConnectionString = ConfigurationManager.ConnectionStrings["db_Watchs"].ConnectionString;
         static SqlConnection GetConnection()
         {
+            string ConnectionString = ConfigurationManager.ConnectionStrings["db_Watchs"].ConnectionString;
             SqlConnection con = new SqlConnection(ConnectionString);
             con.Open();
             return con;
@@ -28,6 +30,7 @@ namespace BTL.KetNoiSQL
                 {
                     cmd.Connection = GetConnection();
                     cmd.ExecuteNonQuery();
+                    con.Close();
                 }
             }
         }
@@ -56,6 +59,7 @@ namespace BTL.KetNoiSQL
                             cmd.Connection = con;
                             da.SelectCommand = cmd;
                             da.Fill(ds);
+                            con.Close();
                             return ds.Tables[0];
                         }
                     }

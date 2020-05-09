@@ -1,0 +1,12 @@
+- nếu gặp lỗi thì sửa lại trên local -> rebuild . Và phải xóa bỏ(trên host) rồi push lại 1 số file/forder  sau đây từ local lên host:
+ <tên project>.csproj
+ <tên project>.csproj.user
+ bin (forder)
+ obj (forder)
+ properties (forder)
+- nếu bị lỗi restore database file backup từ local lên host thì:
++ trên local generate script database (gồm cả data)
++ trên host tạo database trống và bấm vào new SQL query 
++ thực hiện coppy từng khối lệnh create Table, và insert vào host để chạy (lưu ý chạy đúng thứ tự, bảng nào là khóa chính của bảng khác 
+ thì phải chạy trước). sau khi song có thể thử câu lệnh select trên host để kiểm tra
+ 
