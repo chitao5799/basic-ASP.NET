@@ -41,7 +41,7 @@
 				</div>
 				<div class="content_head fl-left">
 					Giá bán: <font color="red" size="+2"><asp:Literal ID="ltPrice" runat="server"></asp:Literal> đ</font><br/>
-                    <asp:ImageButton ID="btnMua" src="/images/Capture17.png" runat="server" CommandArgument="" OnClick="btnMua_Click"/>
+                    <asp:ImageButton ID="btnMua" CssClass="btnMua" src="/images/Capture17.png" runat="server" CommandArgument="" OnClick="btnMua_Click"/>
 					<a href="#"><asp:Literal ID="ltImage_MuaTraGop" runat="server"></asp:Literal></a><br/>
 					<b>Thông số kỹ thuật</b>
 					<p></p>
@@ -189,4 +189,12 @@
         <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
     </div>--%>
    </div>
+    <script type="text/javascript">
+        var btnMua = document.getElementsByClassName('btnMua');
+        var thongBao = document.getElementById('addedCart');
+        btnMua[0].addEventListener('click', function () {
+            //thongBao.innerHTML = 'bạn đã mua';
+            alert('bạn đã mua hàng');
+        });
+    </script>
 </asp:Content>

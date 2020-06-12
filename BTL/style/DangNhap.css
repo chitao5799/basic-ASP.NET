@@ -105,3 +105,6 @@ a.btnCreateAccount {
 .login-nut {
     margin-bottom: 15px;
 }
+.accError, .passError {
+    color: red;
+}

@@ -105,8 +105,10 @@
     <Content Include="style\DanhKy.css" />
     <Content Include="style\DongHo.css" />
     <Content Include="style\GioHang.css" />
+    <Content Include="style\ThanhToan.css" />
     <Content Include="style\TrangChu.css" />
     <Content Include="style\HeaderFooter.css" />
+    <Content Include="ThanhToan.aspx" />
     <Content Include="TrangChu.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -220,6 +222,13 @@
     <Compile Include="KetNoiSQL\clsDongHo.cs" />
     <Compile Include="KetNoiSQL\userKhachHang.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThanhToan.aspx.cs">
+      <DependentUpon>ThanhToan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ThanhToan.aspx.designer.cs">
+      <DependentUpon>ThanhToan.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TrangChu.aspx.cs">
       <DependentUpon>TrangChu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

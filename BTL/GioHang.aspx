@@ -61,7 +61,7 @@
 
                         <br />
                         <div class="btnBuy" ><a href="./DongHo.aspx">Tiếp tục mua sắm</a></div>
-                        <div class="btnBuy"><a href="#">Thanh toán</a></div>
+                        <div class="btnBuy"><a href="./ThanhToan.aspx">Thanh toán</a></div>
 
                 </div>
             </asp:View>

@@ -17,15 +17,25 @@ namespace BTL
         }
         protected bool checkInput()
         {
-                if (string.IsNullOrEmpty(txtAccount.Text.Trim()))
+            if (string.IsNullOrEmpty(txtAccount.Text.Trim()))
             {
-                Response.Write("<script>alert('Tên tài khoản không được để trống');</script>");
+               // Response.Write("<script>alert('Tên tài khoản không được để trống');</script>");
+                accError.InnerHtml = "tài khoản ko được để trống";
                 return false;
+            }
+            else
+            {
+                accError.InnerHtml = "";
             }
             if (string.IsNullOrEmpty(txtPassword.Text.Trim()))
             {
-                Response.Write("<script>alert('Mật khẩu không được để trống');</script>");
+               // Response.Write("<script>alert('Mật khẩu không được để trống');</script>");
+                passError.InnerHtml = "Mật khẩu không được để trống";
                 return false;
+            }
+            else
+            {
+                passError.InnerHtml = "";
             }
             return true;
         }
@@ -33,7 +43,7 @@ namespace BTL
         {
             if (checkInput() == true)
             {
-                //mật khẩu mấu user đầu tiên là 12345
+                //mật khẩu mấu user là aaaa:12345 ; qae:12345
                 DataTable tb = new DataTable();
                 tb = ukh.DangNhap(txtAccount.Text.Trim(), txtPassword.Text.Trim());
                 if (tb.Rows.Count > 0)

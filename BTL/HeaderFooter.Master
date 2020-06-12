@@ -32,7 +32,10 @@
                         <asp:Button ID="btnsearch" runat="server" Text="Tìm kiếm" CssClass="btn1 t1" OnClick="btnsearch_Click"/><!--  -->
                     </div>
                 </li>
-                <li><a href="/GioHang.aspx">Giỏ hàng(<asp:Label ID="TotalWatchBuy" runat="server" Text="0"></asp:Label>)</a></li>               
+                <li>
+                    <a href="/GioHang.aspx">Giỏ hàng(<asp:Label ID="TotalWatchBuy" runat="server" Text="0"></asp:Label>)</a>
+                    <span id="addedCart"></span>
+                </li>               
                 <li>
                     <div class="systemshop">
                         <a href="#" title="Hệ thống cửa hàng">Hệ thống cửa hàng</a>

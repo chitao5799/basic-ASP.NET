@@ -1,0 +1,121 @@
+ <div id="txtBox" runat="server"></div>
+txtBox.Attributes.Add("class", "myClass1 myClass2");
+txtBox.CssClass = "myClass1 myClass2"
+txtBox.CssClass += " myClass3" / txtBox.CssClass.Replace("myClass1", "")
+//---------------
+ window.onload = function() {
+            setInterval("switchImage()", 2000);
+        }
+        var current = 1;
+        var numIMG = 3;
+
+        function switchImage() {
+            current++;
+            document.images['imgShow'].src = './images/' + current + '.jpg';
+            if (current == numIMG) {
+                current = 0
+            }
+        }
+//-------
+ var varSetInterval;
+        function runSlide(){
+            varSetInterval=setInterval("switchImage()", 2000);
+        }
+         window.onload = runSlide;
+        var current = 1;
+        var numIMG = 3;
+
+        function switchImage() {
+            current++;
+            document.images['imgShow'].src = './images/' + current + '.jpg';
+            if (current == numIMG) {
+                current = 0
+            }
+         }
+         var img = document.getElementById('imgShow');
+         img.addEventListener('mouseover', () => {
+               clearInterval(varSetInterval);
+         });
+         img.addEventListener('mouseleave', () => {
+               runSlide();
+         });
+//------------
+<div id="accError" runat="server" class="accError"></div>
+
+   <script type="text/javascript">
+        let inputAcc = document.getElementsByClassName('inputAcc');
+        inputAcc[0].addEventListener('keyup', function () {
+            if (inputAcc[0].value.toString().trim() !== '') {
+                document.getElementsByClassName('accError')[0].innerHTML = '';
+            }
+            else {
+                document.getElementsByClassName('accError')[0].innerHTML = 'tài khoản ko được để trống';
+            }
+        });
+    </script>
+
+accError.InnerHtml = "tài khoản ko được để trống";
+
+//---
+var x = document.getElementById("myH1").style.color;
+document.getElementById("myH1").style.color = "red";
+
+var x = document.getElementById("myDIV");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+
+<button type="button" onmouseover="this.style.color = 'red'">Click Me!</button>
+
+<button type="button" onclick="this.classList.add('mystyle')">Click Me!</button>
+
+function myFunction() {
+  var element, name, arr;
+  element = document.getElementById("myDIV");
+  name = "mystyle";
+  arr = element.className.split(" ");
+  if (arr.indexOf(name) == -1) {
+    element.className += " " + name;
+  }
+}
+
+<button onclick="myFunction()">
+var element = document.body;
+element.classList.toggle("dark-mode");
+//--------
+function myFunction() { //toggle text
+  var x = document.getElementById("myDIV");
+  if (x.innerHTML === "Hello") {
+    x.innerHTML = "Swapped text!";
+  } else {
+    x.innerHTML = "Hello";
+  }
+}
+
+var node = document.createElement("LI");                 // Create a <li> node
+var textnode = document.createTextNode("Water");         // Create a text node
+node.appendChild(textnode);                              // Append the text to <li>
+document.getElementById("myList").appendChild(node);     // Append <li> to <ul> with id="myList"
+//--------
+var h = document.getElementById("myH2");
+h.insertAdjacentHTML("afterend", "<p>My new paragraph</p>");
+
+Legal position values are:
+"afterbegin"
+"afterend"
+"beforebegin"
+"beforeend"
+
+var s = document.getElementById("mySpan");
+var h = document.getElementById("myH2");
+h.insertAdjacentElement("afterend", s);
+
+var h = document.getElementById("myH2");
+h.insertAdjacentText("afterend", "My inserted text");
+///----------
+node.insertBefore(newnode, existingnode)
+
+var list = document.getElementById("myList");    // Get the <ul> element to insert a new node
+list.insertBefore(newItem, list.childNodes[0]);  // Insert <li> before the first child of <ul>

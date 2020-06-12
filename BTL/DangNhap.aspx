@@ -25,11 +25,13 @@
 			<div>
 				<div class="nes">
 					<span>Tài khoản</span>
-					 <asp:TextBox ID="txtAccount" placeholder="     Nhập tài khoản" runat="server"  CssClass="text input"></asp:TextBox>
+					 <asp:TextBox ID="txtAccount" placeholder="     Nhập tài khoản" runat="server"  CssClass="text input inputAcc"></asp:TextBox>
+                    <div id="accError" runat="server" class="accError"></div>
 				</div>
 				<div class="nes1">
 					<span>Mật khẩu</span>
-					 <asp:TextBox ID="txtPassword" placeholder="     Nhập mật khẩu" runat="server" TextMode="Password" CssClass="text input"></asp:TextBox>
+					 <asp:TextBox ID="txtPassword" placeholder="     Nhập mật khẩu" runat="server" TextMode="Password" CssClass="text input inputPass"></asp:TextBox>
+                    <div id="passError" runat="server" class="passError"></div>
 				</div>
 				<div class="qmk">
 					<span>Quên mật khẩu?  </span><a href="#" style="color:blue;">Nhấn vào đây</a>
@@ -54,4 +56,25 @@
 	</div>
 
     </div>
+  <script type="text/javascript">
+        let inputAcc = document.getElementsByClassName('inputAcc');
+        inputAcc[0].addEventListener('keyup', function () {
+            if (inputAcc[0].value.toString().trim() !== '') {
+                document.getElementsByClassName('accError')[0].innerHTML = '';
+            }
+            else {
+                document.getElementsByClassName('accError')[0].innerHTML = 'tài khoản ko được để trống';
+            }
+      });
+
+       let inputPass = document.getElementsByClassName('inputPass');
+        inputPass[0].addEventListener('keyup', function () {
+            if (inputPass[0].value.toString().trim() !== '') {
+                document.getElementsByClassName('passError')[0].innerHTML = '';
+            }
+            else {
+                document.getElementsByClassName('passError')[0].innerHTML = 'mật khẩu ko được để trống';
+            }
+        });
+    </script>
 </asp:Content>

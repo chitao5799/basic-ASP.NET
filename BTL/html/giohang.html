@@ -1,51 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mẫu chung</title>
-    <link rel="stylesheet" href="./template.css">
+<title>Đồng hồ Thụy Sỹ, đồng hồ nam, đồng hồ nữ chính hãng cao cấp</title>
 </head>
-
+	<link rel="stylesheet" type="text/css" href="giohang.css" />
 <body>
 
-    <header class="header">
+	<header class="header">
         <div class="wrapper_header" style="width:92vw;max-width: 1257px;margin: 0 auto;">
-            <div class="logo fl-left">
-                <a href=""><img src="./img/logo4.png" /></a><br/>
+            <div class="logo ">
+                <a href="/"><img src="./img/logo4.png" /></a><br/>
             </div>
 
             <input class="menu-btn" type="checkbox" id="menu-btn" />
             <!--cái checkbox này ko được hiển thị, chỉ có mục đích viết css cho menu responsive-->
             <label class="menu-icon" for="menu-btn"> <!--cái này tạo menu-ion có 3 thanh ngang khi màn hình nhỏ - click 1 lần vào cái này thì thẻ input phía trên được checked, 1 lần nữa thì unchecked-->
             <span class="navicon"></span>
-        </label>
+             </label>
             <ul class="menu">
                 <li class="search">
                     <div class="fl-left">
                         <input class="t" type="text" placeholder="   Tìm kiếm sản phẩm..." name="" /><input class="t1" type="submit" value="Tìm kiếm" name="" />
                     </div>
                 </li>
-                <li><a href="#">Giỏ hàng(0)</a></li>
-                <li class="login">
-                    <ul>
-                        <li class="logined">
-                            <a href="#"><span>Đăng nhập</span></a>
-                            <ul class="sub-dh">
-                                <li><a href="">Đăng nhập</a></li>
-                                <li><a href="">Đăng ký</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
+                <li><a href="/GioHang.aspx">Giỏ hàng(<asp:Label ID="TotalWatchBuy" runat="server" Text="0"></asp:Label>)</a></li>               
                 <li>
                     <div class="systemshop">
                         <a href="#" title="Hệ thống cửa hàng">Hệ thống cửa hàng</a>
                         <a href="#" title="Hệ thống cửa hàng" class="showroom">(100)Showroom</a>
                     </div>
                 </li>
-
+                <li>
+                    <div class="loginLogout" id="loginLogout" runat="server">
+                        <a href="">Đăng nhập</a><span id ="chia">|</span><a href =""> Đăng ký </a> 
+                    </div>
+                </li>
             </ul>
         </div>
     </header>
@@ -111,7 +100,21 @@
         </div>
     </div>
     <!-- ================end menu 2 ========================= -->
-
+	<!-- Main -->
+	<div class="wrap-giohang">
+		<div class="gioHang-thongbao">
+			<div class="fl-left"><img src="img/Capture28.PNG"/></div>
+			<div class="textThongBao"><span>Giỏ hàng không có sản phẩm. Vui lòng thực hiện lại.</span></div>
+		</div>
+		<div class="gioHang-title"><span>GIỎ HÀNG</span>(0 sản phẩm)</div>
+		<div class="gioHang_content">
+			<div><img src="img/Capture29.PNG"/></div>
+			<div><p>Không có sản phẩm nào trong giỏ hàng của bạn.</p></div>
+			<div><a href=""><input type="button" value="Tiếp tục mua sắm"/></a></div>
+		</div>
+		
+	</div>
+	<!-- End Main -->
 
     <!-- ==============================Footer =======================-->
     <footer style="width:100%; height: auto; background-color: #352750; margin-top: 30px;">
@@ -201,8 +204,5 @@
         </div>
     </div>
     <!-- End Footer -->
-
-
 </body>
-
 </html>

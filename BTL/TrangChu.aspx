@@ -235,7 +235,7 @@
     </div>
 
      <script>
-        window.onload = function() {
+       /*window.onload = function() {
             setInterval("switchImage()", 2000);
         }
         var current = 1;
@@ -247,6 +247,29 @@
             if (current == numIMG) {
                 current = 0
             }
+        }*/
+          var varSetInterval;
+        function runSlide(){
+            varSetInterval=setInterval("switchImage()", 2000);
         }
+         window.onload = runSlide;
+        var current = 1;
+        var numIMG = 3;
+
+        function switchImage() {
+            current++;
+            document.images['imgShow'].src = './images/' + current + '.jpg';
+            if (current == numIMG) {
+                current = 0
+            }
+         }
+         var img = document.getElementById('imgShow');
+         img.addEventListener('mouseover', () => {
+               clearInterval(varSetInterval);
+         });
+         img.addEventListener('mouseleave', () => {
+               runSlide();
+         });
+        
     </script>
 </asp:Content>

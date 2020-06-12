@@ -1,0 +1,25 @@
+﻿* {
+}
+
+div#wrapBtn button {
+    cursor: pointer;
+}
+
+.wrapInput {
+    margin: 10px 0px;
+}
+
+span.titleInput {
+    display: inline-block;
+    width: 100px;
+}
+div#wrapBtn span {
+    cursor: pointer;
+    border: 1px solid #b1adad;
+    padding: 4px 10px;
+    color: #383737;
+    background-color: #24ff63;
+}
+    div#wrapBtn span:hover {
+        background-color: #04bd39;
+    }
