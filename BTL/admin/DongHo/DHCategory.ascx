@@ -22,7 +22,9 @@
                         <td><asp:LinkButton ID="lnkUpdate" runat="server" CommandName="Update" CommandArgument='<%#Eval("typeDHid") %>'> <%#:Eval("nameTypeDH") %></asp:LinkButton></td>
                         <td><%#:Eval("xuatXu") %></td>
                         <td><%#:Eval("hangSanXuat") %></td>
-                        <td><asp:LinkButton ID="lnkDelete" runat="server" CommandName="delete" CommandArgument='<%#Eval("typeDHid") %>' OnLoad="messageDelete">Xóa</asp:LinkButton></td>
+                       <td>
+                            <asp:ImageButton OnLoad="messageDelete" ID="lnkDelete" CssClass="lnk" runat="server" ImageUrl="../../Images/icon-trash_can.png" CommandName="delete" CommandArgument='<%#Eval("typeDHid") %>'/>
+                        </td>
                     </tr>
 
                 </ItemTemplate>
@@ -36,7 +38,7 @@
     <asp:View ID="v2" runat="server">
         <asp:HiddenField ID="hdCategoryID" runat="server" />
         <asp:HiddenField ID="hdInsert" runat="server" />
-        <table>
+        <table  id="tblEditDH">
             <tr class="tr_tblAddNew">
                 <td class="td_CateDH_title_addNew" style=" width: 120px;">Loại Đồng Hồ:</td>
                 <td><asp:TextBox ID="txtCategoryName" runat="server"></asp:TextBox></td>

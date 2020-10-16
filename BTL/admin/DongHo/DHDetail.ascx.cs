@@ -38,7 +38,7 @@ namespace BTL.admin.DongHo
         }
         protected void msgDel(object sender, System.EventArgs e)
         {
-            ((LinkButton)sender).Attributes["onclick"] = "return confirm('Bạn có chắc chắn muốn xóa bỏ đồng hồ này?')";
+            ((ImageButton)sender).Attributes["onclick"] = "return confirm('Bạn có chắc chắn muốn xóa bỏ đồng hồ này?')";
         }
 
         long price = 0, quantity =0 , doChiuNuoc=0;
@@ -329,8 +329,15 @@ namespace BTL.admin.DongHo
                         }
 
                         //xóa dữ liệu trong sql server
-                        dh.DeleteWatchDetail(int.Parse(e.CommandArgument.ToString()));
-                        Response.Redirect(Request.Url.ToString());
+                        try
+                        {
+                            dh.DeleteWatchDetail(int.Parse(e.CommandArgument.ToString()));
+                        }catch(Exception )
+                        {
+                            Response.Write("<script>alert('Không thể xóa');</script>");
+
+                        }
+                        //Response.Redirect(Request.Url.ToString());
 
                     }
                     break;

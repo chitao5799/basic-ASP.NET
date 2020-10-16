@@ -223,6 +223,7 @@ div#menu_sp_1 .item-menu-content {
     font-weight: bold;
     height: 25px;
     width: 100%;
+    outline:none;
     border: 1px solid green;
 }
 a.nameProductDongHo {

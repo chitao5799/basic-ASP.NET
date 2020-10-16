@@ -16,7 +16,7 @@ namespace BTL.admin
             string s = Request.QueryString["choose"];
             switch (s)
             {
-                case "products":
+                case "dongho":
                     LoadRegionAdmin.Controls.Add(LoadControl("DongHo/DHControl.ascx"));
                     break;
                 case "userAdmin":

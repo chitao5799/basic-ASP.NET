@@ -24,7 +24,7 @@ namespace BTL.admin.DongHo
         }
         protected void messageDelete(Object sender, System.EventArgs e)
         {
-            ((LinkButton)sender).Attributes["onclick"] = "return confirm('Bạn có chắc muốn xóa loại đồng hồ này không?')";
+            ((ImageButton)sender).Attributes["onclick"] = "return confirm('Bạn có chắc muốn xóa loại đồng hồ này không?')";
         }
         protected void rptDHCategory_ItemCommand(object source, RepeaterCommandEventArgs e)
         {

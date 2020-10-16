@@ -9,7 +9,7 @@ ul{
 body {
 }
 #containerPlaceAdministrative {
-    width: 99vw;
+    /*width: 99vw;*/
     margin: 0 auto;
     min-width: 1325px;
     /*overflow: hidden;*/
@@ -54,10 +54,19 @@ div#login .buttonlogin {
     background-color: #38c7de;
 }
 
-.wrapper {
+/*.wrapper {
     display: grid;
     grid-template-columns: 16% 80%;
     margin-left: 20px;
+}*/
+.menu_side_left {
+    width: 200px;
+    margin-right: 20px;
+    height: 100%;
+    background: #2f79c5;
+    position: fixed;
+    box-shadow: 5px 0px 10px #b7b7b7;
+    z-index: 6;
 }
 .nameAminLogined {
     display: flex;
@@ -90,9 +99,31 @@ div#login .buttonlogin {
     display: flex;
     flex-direction: row;
     width: 300px;
-    justify-content: space-around;
-    margin: 15px 0px;
-    float: right;
+    justify-content: flex-end;
+    background-color: white;
+    padding: 10px 0px;
+    box-shadow: 0px 3px 7px #d2cfcf;
+    width: 100%;
+    position: fixed;
+    margin-left: -225px;
+    /* margin-right: 13px; */
+    /* padding-right: 22px; */
+    z-index: 3;
+    /* margin: 15px 0px; */
+    /* float: right; */
+}
+.lnk {
+    width: 30px;
+    outline:none;
+}
+div#logo_adin {
+    width: 90%;
+    padding-top: 15px;
+    /* padding-left: 8px; */
+    margin: 0 auto;
+    /* padding-right: 8px; */
+    padding-bottom: 15px;
+    border-bottom: 1px solid white;
 }
 .wrapperWatch {
     display: flex;
@@ -106,12 +137,19 @@ ul#menu {
 ul#menu li:hover {
     background-color: #2a2af5;
 }
-
+#tblEditDH input[type="text"] {
+    height: 25px;
+    border-radius: 5px;
+    border: 1px solid #828282;
+    padding-left: 10px;
+    font-size: 15px;
+    outline: none;
+}
 ul#menu li {
     height: 30px;
     align-items: center;
-    border-top: 2px solid #f9f5f5;
-    background-color: #44bff3;
+    border-bottom: 1px solid #f9f5f5;
+    /*background-color: #44bff3;*/
 }
 ul#menu li a {
     color: white;
@@ -122,6 +160,10 @@ ul#menu li a {
     height: 100%;
     padding-left: 20px;
     padding-top: 5px;
+}
+.contain_err li {
+    margin-bottom: 5px;
+    font-family: sans-serif;
 }
 .titile_watchs {
     font-family: tahoma;
@@ -135,7 +177,7 @@ ul#menu li a {
     height: 30px;
     background-color: #5656ff;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 5px;
     margin-bottom: 10px;
 }
 .btn_addNew a {
@@ -149,7 +191,7 @@ ul#menu li a {
     padding-top: 6px;
 }
 table.tblDisplay, .tblDisplay th, .tblDisplay td {
-    border: 1px solid black;
+    border: 1px solid #797979;
     border-collapse: collapse;
 }
 
@@ -163,6 +205,9 @@ table.tblDisplay, .tblDisplay th, .tblDisplay td {
     font-weight: bold;
     font-family: sans-serif;
 }
+table.tblDisplay tr:first-child td {
+    border: none;
+}
 .tblDisplay tr:not(.tbl_tr_title):hover {
     background-color: #C3E6CB;
 }
@@ -172,16 +217,19 @@ tr.tr_tblAddNew {
     padding: 10px 0px;
     width: 834px;
 }
-input.btnUpdateData{
-    width: 120px;
-    height: 40px;
+input.btnUpdateData {
+    /* width: 120px; */
+    /* height: 40px; */
+    padding: 5px 10px;
     color: white;
     background-color: #3a91f3;
     cursor: pointer;
     font-family: tahoma;
+    outline: none;
+    border: none;
     font-size: 22px;
 }
-}
+
 
 td.td_CateDH_title_addNew {
     width: 120px;
@@ -207,9 +255,9 @@ td.td_CateDH_title_addNew {
 }
 
 /*==========css cho phần user control với query string là user admin=============*/
-.wrap_users {
+/*.wrap_users {
     margin-top: 84px;
-}
+}*/
 .DieuKhienAdmin {
 display: flex;
 flex-direction: row;
@@ -241,4 +289,18 @@ padding-bottom: 15px;
 .tblUsersAdmin tr {
     display: block;
     margin-bottom: 10px;
+}
+table.tblUsersAdmin input[type="text"] {
+    height: 25px;
+    outline: none;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid #7d7d7d;
+    padding-left: 10px;
+    font-size: 15px;
+}
+table.tblUsersAdmin select {
+    width: 65px;
+    height: 25px;
+    outline: none;
 }

@@ -150,6 +150,8 @@
         background-color: white;
         color: red;
         font-weight: bold;
+        outline:none;
+        border: 1px solid green;
     }
 
     .wrap_item_watch img {
