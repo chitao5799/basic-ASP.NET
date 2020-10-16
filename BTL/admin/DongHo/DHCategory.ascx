@@ -14,7 +14,7 @@
                             <td style="width:300px;">Loại Đồng Hồ</td>
                             <td style="width:300px;">Xuất xứ</td>
                             <td style="width:300px;">Hãng Sản Xuất</td>
-                            <td></td>
+                            <td style="width:100px;">Delete</td>
                         </tr>          
                 </HeaderTemplate>
                 <ItemTemplate>
@@ -23,7 +23,7 @@
                         <td><%#:Eval("xuatXu") %></td>
                         <td><%#:Eval("hangSanXuat") %></td>
                        <td>
-                            <asp:ImageButton OnLoad="messageDelete" ID="lnkDelete" CssClass="lnk" runat="server" ImageUrl="../../Images/icon-trash_can.png" CommandName="delete" CommandArgument='<%#Eval("typeDHid") %>'/>
+                            <asp:ImageButton OnLoad="messageDelete" ID="lnkDelete" style="width:18px; outline:none;" runat="server" ImageUrl="../../Images/icon-trash_can.png" CommandName="delete" CommandArgument='<%#Eval("typeDHid") %>'/>
                         </td>
                     </tr>
 
@@ -33,7 +33,19 @@
                 </FooterTemplate>
             </asp:Repeater>
         </div>
-        
+         <div style="overflow: hidden;" id="contain_paging">
+            <asp:Repeater ID="rptPages" runat="server"
+                onitemcommand="rptPages_ItemCommand1">
+                <ItemTemplate>
+                    <asp:LinkButton ID="btnPage"
+                     style="padding:1px 3px; margin:1px; background:#ccc; border:solid 1px #666; font:8pt tahoma;"
+                     CommandName="Page" CommandArgument="<%# Container.DataItem %>"
+                     runat="server">
+                        <%# Container.DataItem %>
+                    </asp:LinkButton>
+                </ItemTemplate>
+            </asp:Repeater>
+        </div>
     </asp:View>
     <asp:View ID="v2" runat="server">
         <asp:HiddenField ID="hdCategoryID" runat="server" />
@@ -41,15 +53,21 @@
         <table  id="tblEditDH">
             <tr class="tr_tblAddNew">
                 <td class="td_CateDH_title_addNew" style=" width: 120px;">Loại Đồng Hồ:</td>
-                <td><asp:TextBox ID="txtCategoryName" runat="server"></asp:TextBox></td>
+                <td><asp:TextBox ValidationGroup="updateCateDH" ID="txtCategoryName" runat="server"></asp:TextBox></td>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Display="None" ControlToValidate="txtCategoryName"
+                    ErrorMessage="* Loại đồng hồ không được để trống" ValidationGroup="updateCateDH"></asp:RequiredFieldValidator>
             </tr>
             <tr class="tr_tblAddNew">
                <td class="td_CateDH_title_addNew" style=" width: 120px;">Xuất Xứ:</td>
-                <td><asp:TextBox ID="txtXuatxu" runat="server"></asp:TextBox></td>                
+                <td><asp:TextBox ValidationGroup="updateCateDH" ID="txtXuatxu" runat="server"></asp:TextBox></td> 
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Display="None" ControlToValidate="txtXuatxu"
+                    ErrorMessage="* Xuất xứ không được để trống" ValidationGroup="updateCateDH"></asp:RequiredFieldValidator>
             </tr>
             <tr class="tr_tblAddNew">
                 <td class="td_CateDH_title_addNew" style=" width: 120px;">Hãng sản xuất:</td>
-                <td><asp:TextBox ID="txtHSX" runat="server"></asp:TextBox></td> 
+                <td><asp:TextBox ValidationGroup="updateCateDH" ID="txtHSX" runat="server"></asp:TextBox></td> 
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" Display="None" ControlToValidate="txtHSX"
+                    ErrorMessage="* Hãng sản xuất không được để trống" ValidationGroup="updateCateDH"></asp:RequiredFieldValidator>
             </tr>
             <tr class="tr_tblAddNew">
                 <td class="td_CateDH_title_addNew" style=" width: 120px;">Thương hiệu:</td>
@@ -59,8 +77,10 @@
             </tr>
             <tr class="tr_tblAddNew">
                 <td></td>
-                <td><asp:Button ID="btnSave" runat="server" class="btnUpdateData" Text="Cập nhật" OnClick="btnSave_Click"/></td>
+                <td><asp:Button ValidationGroup="updateCateDH" ID="btnSave" runat="server" class="btnUpdateData" Text="Cập nhật" OnClick="btnSave_Click"/></td>
             </tr>
         </table>
+       <asp:ValidationSummary ID="ValidationSummary1" runat="server" ValidationGroup="updateCateDH" ForeColor="Red" CssClass="contain_err"/>
+
     </asp:View>
 </asp:MultiView>

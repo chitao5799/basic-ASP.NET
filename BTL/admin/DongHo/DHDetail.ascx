@@ -115,9 +115,13 @@
             </tr>
              <tr class="tr_tblAddNew">
                 <td class="auto-style2">Ảnh</td>
-                 <td></td>
+                 
                  <td>
-                     <asp:FileUpload ValidationGroup="editDH" ID="fUpImage" runat="server" />
+                     <asp:FileUpload ValidationGroup="editDH" ID="fUpImage" runat="server"  CssClass="uploadImage"/>
+                 </td>
+                 <td>
+                    <img id="imgViewDH" class="imgViewDH" src="#" alt="image chossed" runat="server"/>
+
                  </td>
                   <asp:RequiredFieldValidator ID="RequiredFieldValidator4" Display="None" runat="server" ControlToValidate="fUpImage"
                     ErrorMessage="* Ảnh đồng hồ không được để trống" ValidationGroup="editDH"></asp:RequiredFieldValidator>
@@ -239,3 +243,22 @@
         <asp:ValidationSummary ID="ValidationSummary1" runat="server"  ValidationGroup="editDH" ForeColor="Red" CssClass="contain_err"/>
     </asp:View>
 </asp:MultiView>
+<script>
+     var uploadimage = document.getElementsByClassName('uploadImage')[0];
+    if (uploadimage != undefined)
+        uploadimage.onchange = function () {
+        readURL(this);
+        };
+    function readURL(input) {
+             if (input.files && input.files[0]) {
+               var reader = new FileReader();
+
+                 reader.onload = function (e) {
+                     document.getElementsByClassName('imgViewDH')[0].setAttribute('src', e.target.result);
+                     document.getElementsByClassName('imgViewDH')[0].setAttribute('style', "max-width: 100px;max-height: 150px;;display:block;");
+                 }
+                
+               reader.readAsDataURL(input.files[0]);
+             }
+    }
+</script>

@@ -23,10 +23,15 @@ div#login {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 20px;
+    border: 1px solid #b3b3b3;
+    width: 400px;
+    box-shadow: 0px 0px 20px #949494;
 }
 h1#welcomeToLoginAdmintrative {
     color: #3232fd;
     margin-bottom: 20px;
+    text-align:center;
 }
 div#login div {
     margin-bottom: 10px;
@@ -112,6 +117,22 @@ div#login .buttonlogin {
     /* margin: 15px 0px; */
     /* float: right; */
 }
+div#contain_paging {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin: 30px 0px;
+}
+
+    div#contain_paging a {
+        display: inline-block !important;
+        padding: 7px 12px !important;
+        margin: 0px 5px !important;
+        background-color: white !important;
+        border: 1px solid #d6d6d6 !important;
+        font-size: 14px !important;
+    }
 .lnk {
     width: 30px;
     outline:none;
@@ -290,7 +311,7 @@ padding-bottom: 15px;
     display: block;
     margin-bottom: 10px;
 }
-table.tblUsersAdmin input[type="text"] {
+table.tblUsersAdmin input[type="text"], table.tblUsersAdmin input[type="password"] {
     height: 25px;
     outline: none;
     width: 200px;
@@ -303,4 +324,12 @@ table.tblUsersAdmin select {
     width: 65px;
     height: 25px;
     outline: none;
+}
+.avatar_add_view, .avatar_change_view {
+    display: none;
+}
+.imgViewDH {
+    display: none;
+    max-width: 100px;
+    max-height: 150px;
 }

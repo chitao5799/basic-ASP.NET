@@ -11,6 +11,20 @@ namespace BTL.admin.DongHo
     public partial class DHCategory : System.Web.UI.UserControl
     {
         clsDongHo dh = new clsDongHo();
+        public int PageNumber
+        {
+            get
+            {
+                if (ViewState["PageNumber"] != null)
+                    return Convert.ToInt32(ViewState["PageNumber"]);
+                else
+                    return 0;
+            }
+            set
+            {
+                ViewState["PageNumber"] = value;
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
           
@@ -19,8 +33,44 @@ namespace BTL.admin.DongHo
         }
         void LoadData()
         {
-            rptDHCategory.DataSource = dh.GetList();
+            
+            DataTable tb=dh.GetList();
+            phanTrang(tb);
+        }
+        private void phanTrang(DataTable dt)
+        {
+            PagedDataSource pgitems = new PagedDataSource();
+            System.Data.DataView dv = new System.Data.DataView(dt);//DataView để filter dữ liệu từ DataTable
+            pgitems.DataSource = dv;
+            pgitems.AllowPaging = true;
+            pgitems.PageSize =3;
+            pgitems.CurrentPageIndex = PageNumber;
+            if (pgitems.PageCount > 1)
+            {
+                rptPages.Visible = true;
+                System.Collections.ArrayList pages = new System.Collections.ArrayList();
+                for (int i = 0; i < pgitems.PageCount; i++)
+                    pages.Add((i + 1).ToString());
+                rptPages.DataSource = pages;
+                rptPages.DataBind();
+
+            }
+            else
+            {
+                rptPages.Visible = false;
+
+            }
+
+            rptDHCategory.DataSource = pgitems;
             rptDHCategory.DataBind();
+
+        }
+        protected void rptPages_ItemCommand1(object source, RepeaterCommandEventArgs e)
+        {
+            PageNumber = Convert.ToInt32(e.CommandArgument) - 1;
+            LoadData();
+
+
         }
         protected void messageDelete(Object sender, System.EventArgs e)
         {

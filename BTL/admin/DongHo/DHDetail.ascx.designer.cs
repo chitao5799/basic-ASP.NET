@@ -166,6 +166,15 @@ namespace BTL.admin.DongHo {
         protected global::System.Web.UI.WebControls.FileUpload fUpImage;
         
         /// <summary>
+        /// imgViewDH control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage imgViewDH;
+        
+        /// <summary>
         /// RequiredFieldValidator4 control.
         /// </summary>
         /// <remarks>

@@ -300,6 +300,8 @@ namespace BTL.admin.DongHo
                         txtPrice.Text = dt.Rows[0]["price"].ToString();
                         txtSale.Text = dt.Rows[0]["sale"].ToString();
                         hdImage.Value = dt.Rows[0]["urlPicture"].ToString();
+                        imgViewDH.Src = "/images/" + dt.Rows[0]["urlPicture"].ToString();
+                        imgViewDH.Style.Add("display", "block");
                         hdDetailID.Value = e.CommandArgument.ToString();
                         txtQuantity.Text = dt.Rows[0]["quantity"].ToString();
                         txtKieuDang.Text = dt.Rows[0]["kieuDang"].ToString();

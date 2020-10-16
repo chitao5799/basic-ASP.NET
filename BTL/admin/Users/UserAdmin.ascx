@@ -36,9 +36,14 @@
                 <td style="width:100px">Ảnh đại diện:</td>
                  <td style="width:10px"></td>
                  <td>
-                     <asp:FileUpload ID="fUpImage" runat="server" />
+                     <asp:FileUpload ID="fUpImage" runat="server" onchange="showImageChoosed(this)" />
                  </td>
             </tr>
+        <tr>
+                <td> </td>
+                <td><img src="#" id="avatar_add_view" class="avatar_add_view"/></td>
+                <td></td>
+         </tr>
         <tr>
             <td style="width:100px">Password:</td>
             <td style="width:10px"></td>
@@ -66,3 +71,18 @@
         </tr>
     </table>
 </div>
+<script>
+    function showImageChoosed(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    document.getElementById("avatar_add_view").setAttribute('src', e.target.result);
+                    document.getElementById("avatar_add_view").setAttribute('style', "max-width: 200px;max-height: 200px;;display:block;");
+                }
+                
+            reader.readAsDataURL(input.files[0]);
+            }
+    }
+   
+</script>
