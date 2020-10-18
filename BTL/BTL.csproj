@@ -74,6 +74,8 @@
   <ItemGroup>
     <Content Include="administrator.aspx" />
     <Content Include="admin\adminControl.ascx" />
+    <Content Include="admin\DonDatHang\donhang.ascx" />
+    <Content Include="admin\DonDatHang\ProcessDonHang.aspx" />
     <Content Include="admin\DongHo\DHCategory.ascx" />
     <Content Include="admin\DongHo\DHControl.ascx" />
     <Content Include="admin\DongHo\DHDetail.ascx" />
@@ -126,6 +128,20 @@
     </Compile>
     <Compile Include="admin\adminControl.ascx.designer.cs">
       <DependentUpon>adminControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\DonDatHang\donhang.ascx.cs">
+      <DependentUpon>donhang.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\DonDatHang\donhang.ascx.designer.cs">
+      <DependentUpon>donhang.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\DonDatHang\ProcessDonHang.aspx.cs">
+      <DependentUpon>ProcessDonHang.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\DonDatHang\ProcessDonHang.aspx.designer.cs">
+      <DependentUpon>ProcessDonHang.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\DongHo\DHCategory.ascx.cs">
       <DependentUpon>DHCategory.ascx</DependentUpon>
@@ -217,6 +233,7 @@
     </Compile>
     <Compile Include="KetNoiSQL\clsComment.cs" />
     <Compile Include="KetNoiSQL\clsDHforDisplay.cs" />
+    <Compile Include="KetNoiSQL\clsDonHang.cs" />
     <Compile Include="KetNoiSQL\connectSQL.cs" />
     <Compile Include="KetNoiSQL\controlAdmin.cs" />
     <Compile Include="KetNoiSQL\clsDongHo.cs" />

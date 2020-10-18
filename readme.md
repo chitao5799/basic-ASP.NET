@@ -40,5 +40,7 @@ phần admin
 ![img](https://github.com/chitao5799/basic-ASP.NET/blob/master/picture%20demo/admin-chitiet.png)
 ---
 ---
-![img](https://github.com/chitao5799/basic-ASP.NET/blob/master/picture%20demo/admin-add-chitiet.png)
+![img](https://github.com/chitao5799/basic-ASP.NET/blob/master/picture%20demo/admin_user.png)
+---
+![img](https://github.com/chitao5799/basic-ASP.NET/blob/master/picture%20demo/admin_donhang.png)
 ---

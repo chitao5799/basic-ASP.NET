@@ -15,6 +15,7 @@
         <div class="DetailWatchTitle titile_watchs"><b>Danh sách các đồng hồ</b></div>
         <div class="btn_addNew"><asp:LinkButton ID="lnkUpdate" runat="server" CssClass="addNewDetailDH" OnClick="lnkAddNew_Click" >Thêm mới</asp:LinkButton></div>
         <asp:DropDownList ID="drpWatchCategory" CssClass="drpWatchCategory" runat="server" AutoPostBack="true" OnSelectedIndexChanged="drpWatchCategory_SelectedIndexChanged"></asp:DropDownList>
+       <div style="clear:both;margin-bottom: 15px;"></div>
         <asp:Repeater ID="rptWatchDetails" runat="server" OnItemCommand="rptWatchDetails_ItemCommand">
             <HeaderTemplate>
                 <table style="width:100%;" class="rptHed tblDisplay" >
@@ -74,7 +75,7 @@
         <asp:HiddenField ID="hdInsert" runat="server" />
         <asp:HiddenField ID="hdDetailID" runat="server" />
         <asp:HiddenField ID="hdImage" runat="server" />
-        
+        <div style="margin-bottom:50px;" ></div>
     </asp:View> 
     <asp:View id="v1" runat="server"><!--view để thêm dữ liệu hoặc cập nhật-->
         <div class="DetailWatchTitle titile_watchs"><b>Thêm mới đồng hồ</b></div>

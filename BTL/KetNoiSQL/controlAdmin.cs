@@ -74,6 +74,17 @@ namespace BTL.KetNoiSQL
             sqlCom.Parameters.AddWithValue("@acc", account);
             connectSQL.ExecuteNoneQuery(sqlCom);
         }
+        public void changePassword(string account, string password_new)
+        {
+            SqlCommand sqlCom;
+           
+            sqlCom = new SqlCommand("update users set password=@password where account=@acc");
+            
+            sqlCom.CommandType = CommandType.Text;
+            sqlCom.Parameters.AddWithValue("@password", BuildPassword(password_new));
+            sqlCom.Parameters.AddWithValue("@acc", account);
+            connectSQL.ExecuteNoneQuery(sqlCom);
+        }
         public DataTable getInforAdminByAcc(string account)
         {
             string query = @"select * from users where account=N'" + account.Trim()+"'";

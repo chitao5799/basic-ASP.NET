@@ -27,6 +27,7 @@ input.btn.btn-remove {
     width: 40px;
     height: 40px;
     color: white;
+    outline:none;
 }
 .btnBuy {
     height: 40px;
@@ -48,9 +49,12 @@ input.btn.btn-remove {
     box-sizing: border-box;
 }
 table, th, td {
-    border: 1px solid black;
+    border: 1px solid #929292;
     border-collapse: collapse;
-    text-align:center;
+    text-align: center;
+}
+th{
+    border:none;
 }
 th, td{
     padding:5px 0px;

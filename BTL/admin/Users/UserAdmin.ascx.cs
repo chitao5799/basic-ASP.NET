@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Net.Mail;
+using System.Security.Cryptography;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
@@ -22,18 +24,25 @@ namespace BTL.admin.Users
             txtAcc.Text = "";
             hdInsert.Value = "add";
             txtAdminName.Text = "";
-            drpGioiTinh.SelectedValue = "";
+           // drpGioiTinh.SelectedValue = "";
             txtPassword.Text = "";
             txtDiaChi.Text = "";
             txtDT.Text = "";
             txtEmail.Text = "";
             txtAcc.Enabled = true;
+            txtPassword.Enabled = true;
+
+            RequiredFieldValidator4.Enabled = true;
+            RequiredFieldValidator6.Enabled = true;
+            btnUpdate.Text = "Thêm mới";
+            MultiViewUser.ActiveViewIndex = 0;
         }
         protected void btnEditInfor_Click(object sender, EventArgs e)
         {
             hdInsert.Value = "editInfor";
             DataTable tb = new DataTable();
             tb = admin.getInforAdminByAcc(Session["username"].ToString());
+           
             if (tb.Rows.Count > 0)
             {
                 txtAcc.Text = "";
@@ -46,7 +55,13 @@ namespace BTL.admin.Users
                 txtDT.Text = tb.Rows[0]["phone"].ToString();
                 txtEmail.Text = tb.Rows[0]["email"].ToString();
                 txtAcc.Enabled = false;
+                txtPassword.Enabled = false;
             }
+
+            RequiredFieldValidator4.Enabled = false;
+            RequiredFieldValidator6.Enabled = false;
+            btnUpdate.Text = "Cập nhật";
+            MultiViewUser.ActiveViewIndex = 0;
         }
         protected bool checkInput()
         {
@@ -144,6 +159,8 @@ namespace BTL.admin.Users
                 }
                 else
                 {//cập nhật data
+                    Session["avatarAdmin"] = file;
+                    Session["userAdminname"] = txtAdminName.Text.Trim();
                     //cập nhật khi password thay đổi
                     if (!string.IsNullOrEmpty(txtPassword.Text.Trim()))
                         admin.update(Session["username"].ToString(), txtAdminName.Text.Trim(), int.Parse(drpGioiTinh.SelectedValue.ToString()), file, txtPassword.Text.Trim(), txtDiaChi.Text.Trim(), txtDT.Text.Trim(), txtEmail.Text.Trim());
@@ -154,6 +171,43 @@ namespace BTL.admin.Users
                 }
                 Response.Redirect(Request.Url.ToString());
             }
+        }
+        protected void btnChangeMK_Click(object sender, EventArgs e)
+        {
+            DataTable tb = new DataTable();
+            tb =admin.Login(Session["username"].ToString(),txtMkCu.Text.Trim());
+
+            if (tb.Rows.Count > 0)
+            {
+                string mk1 = txtMkMoi.Text.Trim();
+                string mk2 = txtMkMoi2.Text.Trim();
+                if (txtMkCu.Text.Trim() == mk1)
+                {
+                    Response.Write("<script>alert('Mật khẩu mới không được giống mật khẩu cũ');</script>");
+                    return;
+                }
+                if (mk1 == mk2)
+                {
+                    admin.changePassword(Session["username"].ToString(), mk1);
+                    Response.Write("<script>alert('Đổi mật khẩu thành công');</script>");
+                }
+                else
+                {
+                    //đã kiểm tra ở client.
+                    Response.Write("<script>alert('Mật khẩu mới không giống nhập lại mật khẩu mới');</script>");
+                }
+            }
+            else
+            {
+                Response.Write("<script>alert('Mật khẩu cũ không chính xác');</script>");
+            }
+        }
+   
+
+
+        protected void lnkChangePass_Click(object sender, EventArgs e)
+        {
+            MultiViewUser.ActiveViewIndex = 1;
         }
     }
 }

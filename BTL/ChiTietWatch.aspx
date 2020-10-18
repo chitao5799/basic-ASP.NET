@@ -190,11 +190,11 @@
     </div>--%>
    </div>
     <script type="text/javascript">
-        var btnMua = document.getElementsByClassName('btnMua');
+     /*   var btnMua = document.getElementsByClassName('btnMua');
         var thongBao = document.getElementById('addedCart');
         btnMua[0].addEventListener('click', function () {
             //thongBao.innerHTML = 'bạn đã mua';
             alert('bạn đã mua hàng');
-        });
+        });*/
     </script>
 </asp:Content>

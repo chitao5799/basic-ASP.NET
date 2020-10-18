@@ -22,6 +22,9 @@ namespace BTL.admin
                 case "userAdmin":
                     LoadRegionAdmin.Controls.Add(LoadControl("Users/UserAdmin.ascx"));
                     break;
+                case "donhang":
+                    LoadRegionAdmin.Controls.Add(LoadControl("DonDatHang/donhang.ascx"));
+                    break;
 
             }
         }

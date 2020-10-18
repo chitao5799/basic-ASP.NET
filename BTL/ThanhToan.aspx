@@ -3,62 +3,81 @@
     <link href="style/ThanhToan.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div id="wrapThanhToan" class="wrapper"  style="width:92vw;max-width: 1257px;margin: 0 auto;">
-        <div class="wrapInput">
-            <span class="titleInput">Họ tên:</span>
-            <input type="text" id="inputHoTen" class="inputText" name="" placeholder="Nhập họ tên" value="" />
-        </div> 
-		<div class="wrapInput">
-            <span class="titleInput">Email:</span>
-            <input type="text" id="inputEmail" class="inputText" name="" placeholder="Nhập email" value="" />
-        </div> 
-        <div class="wrapInput">
-            <span class="titleInput">SĐT:</span>
-            <input type="text" id="inputSDT" class="inputText" name="" placeholder="Nhập số điện thoại" value="" />
-        </div> 
-        <div class="wrapInput">
-            <span class="titleInput">Địa chỉ:</span>
-            <input type="text" id="inputDiaChi" class="inputText" name="" placeholder="Nhập địa chỉ" value="" />
-        </div> 
-        <div id="wrapBtn">
-            <a href="./TrangChu.aspx" onclick="return checkInput()"><span id="btnDat">Đặt</span></a> 
-            <span id="btnHuy">Hủy</span>
-        </div>
+    <div class="bill_info">
+	    <p class="title">THÔNG TIN THANH TOÁN</p>
+        <asp:ValidationSummary ValidationGroup="checkInput" ForeColor="Red" ID="ValidationSummary1" runat="server" />
+	    <table>
+		    <tr>
+			    <td></td>
+			    <td>
+				    <span class="red">Lưu ý:</span> Mục <span class="red">(*)</span> là bắt buộc phải ghi
+			    </td>
+		    </tr>
+		    <tr>
+			    <td>Họ và tên <span class="red">(*)</span>:</td>
+			    <td>
+                    <asp:TextBox ID="customer_name" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" Display="None" runat="server" ControlToValidate="customer_name"
+                        ErrorMessage="Bạn phải nhập họ tên" ValidationGroup="checkInput"></asp:RequiredFieldValidator>
+			    </td>
+		    </tr>
+		    <tr>
+			    <td>Điện thoại <span class="red">(*)</span>:</td>
+			    <td>
+                    <asp:TextBox TextMode="Number" ID="customer_phone" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" Display="None" runat="server" ControlToValidate="customer_phone"
+                        ErrorMessage="Bạn phải nhập số điện thoại" ValidationGroup="checkInput"></asp:RequiredFieldValidator>
+                    <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="Điện thoại phải gồm 10 hoặc 11 số"  ValidationGroup="checkInput"
+                EnableClientScript="true" ClientValidationFunction="checkPhoneNumber" ControlToValidate="customer_phone" Display="None" ></asp:CustomValidator>
+			    </td>
+		    </tr>
+		    <tr>
+			    <td>Địa chỉ <span class="red">(*)</span>:</td>
+			    <td>
+                     <asp:TextBox ID="customer_address" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" Display="None" runat="server" ControlToValidate="customer_address"
+                        ErrorMessage="Bạn phải nhập số địa chỉ" ValidationGroup="checkInput"></asp:RequiredFieldValidator>
+			    </td>
+		    </tr>
+		    <tr>
+			    <td>Email:</td>
+			    <td>
+                     <asp:TextBox ID="customer_email" runat="server"></asp:TextBox>
+                     <asp:CustomValidator ID="CustomValidator2" runat="server" ErrorMessage="Email không hợp lệ"  ValidationGroup="checkInput"
+                EnableClientScript="true" ClientValidationFunction="checkEmail" ControlToValidate="customer_email" Display="None" ></asp:CustomValidator>
+			    </td>
+		    </tr>
+		    <tr>
+			    <td>Ghi chú:</td>
+			    <td><asp:TextBox ID="ghi_chu" runat="server" TextMode="MultiLine"></asp:TextBox></td>
+		    </tr>
+	    </table>
+        <asp:Button ValidationGroup="checkInput" ID="CODpayment" CssClass="CODpayment" runat="server" Text="THANH TOÁN KHI NHẬN HÀNG" OnClick="CODpayment_Click" />
+	    <asp:Button ValidationGroup="checkInput" ID="ONLpayment" CssClass="ONLpayment" runat="server" Text="THANH TOÁN ONLINE" OnClick="ONLpayment_Click" />
+	    
     </div>
+    <div style="clear:both; border:0px;"></div>
     <script type="text/javascript">
-        let hoTen = document.getElementById('inputHoTen');
-        let Email = document.getElementById('inputEmail');
-        let SDT = document.getElementById('inputSDT');
-        let DiaChi = document.getElementById('inputDiaChi');
-        let dat = document.getElementById('btnDat');
-        let huy = document.getElementById('btnHuy');
-        function checkInput() {
-            if (hoTen.value.toString().trim()=== '') {
-                alert('Họ tên không được để trống');
-                return false;
+        function checkPhoneNumber(sender, args) {
+            let phone = document.getElementById('<%=customer_phone.ClientID%>').value;
+            if (phone.length < 10 || phone.length > 11) {
+                args.IsValid = false;
+              // alert('Điện thoại gồm 10 hoặc 11 số');
+               
             }
-            if (Email.value.toString().trim() === '') {
-                alert('Email không được để trống');
-                return false;
+            else {
+                // do your other validation tests here...
             }
-            if (SDT.value.toString().trim() === '') {
-                alert('Số điện thoại không được để trống');
-                return false;
-            }
-            if (DiaChi.value.toString().trim() === '') {
-                alert('Địa chỉ không được để trống');
-                return false;
-            }
-            var eArr = Email.value.toString().trim().split('@');
-            if (eArr.length !== 2) {
-                alert('Email không hợp lệ');
-                return false;
-            }
-            return true;
         }
-        //dat.addEventListener('click', function () {
-        //    checkInput();
+        function checkEmail(sender, args) {
+            let mail = document.getElementById('<%=customer_email.ClientID%>').value;
+            if (mail.length > 0) {
+                const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                let kq = re.test(String(mail).toLowerCase());
+                if (kq == false)
+                    args.IsValid = false;               
+            }
            
-        //});
+        }
     </script>
 </asp:Content>
