@@ -18,7 +18,8 @@ namespace BTL
             Session["giohang"] = new List<clsGioHang>();
             Session["userID"] = -1;
             Session["urlTruocLogin"] = "";
-            //Session.Timeout = 60; // 60 is number of minutes
+            Session["avatarUser"] = "images/icon-acc.png";
+            Session.Timeout = 60; // 60 is number of minutes
         }
     }
 }

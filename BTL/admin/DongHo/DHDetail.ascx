@@ -42,10 +42,14 @@
                         <td><%#:Eval("kieuDang") %></td>
                         <td><%#:Eval("active") %></td>
                         <td>
-                            <asp:ImageButton Width="40px" ID="lnkUpdate" CssClass="lnk" runat="server" ImageUrl="../../Images/icon_edit.png" CommandName="Update" CommandArgument='<%#:Eval("chiTietDHid") %>'/>
+                            <asp:LinkButton  CommandName="Update" CommandArgument='<%#:Eval("chiTietDHid") %>' CssClass="lnk" Text="" runat="server" ID="lnkUpdate" >
+                                <asp:image Width="40px" imageurl="../../Images/icon_edit.png" runat="server"/>
+                            </asp:LinkButton> 
                         </td>
                         <td>
-                            <asp:ImageButton OnLoad="msgDel" ID="lnkDelete" CssClass="lnk" runat="server" ImageUrl="../../Images/icon-trash_can.png" CommandName="Delete" CommandArgument='<%#:Eval("chiTietDHid") %>'/>
+                           <asp:LinkButton OnLoad="msgDel" ID="lnkDelete" CssClass="lnk"  CommandName="Delete" CommandArgument='<%#:Eval("chiTietDHid") %>' Text="" runat="server" >
+                                <asp:image Width="30px" imageurl="../../Images/icon-trash_can.png" runat="server"/>
+                            </asp:LinkButton> 
                         </td>
                 </tr>
                 
@@ -59,11 +63,15 @@
                         <td><%#:Eval("quantity") %></td>
                         <td><%#:Eval("kieuDang") %></td>
                         <td><%#:Eval("active") %></td>
-                         <td>
-                            <asp:ImageButton Width="40px" ID="lnkUpdate" CssClass="lnk" runat="server" ImageUrl="../../Images/icon_edit.png" CommandName="Update" CommandArgument='<%#:Eval("chiTietDHid") %>'/>
+                          <td>
+                            <asp:LinkButton  CommandName="Update" CommandArgument='<%#:Eval("chiTietDHid") %>' CssClass="lnk" Text="" runat="server" ID="lnkUpdate" >
+                                <asp:image Width="40px" imageurl="../../Images/icon_edit.png" runat="server"/>
+                            </asp:LinkButton> 
                         </td>
                         <td>
-                            <asp:ImageButton OnLoad="msgDel" ID="lnkDelete" CssClass="lnk" runat="server" ImageUrl="../../Images/icon-trash_can.png" CommandName="Delete" CommandArgument='<%#:Eval("chiTietDHid") %>'/>
+                           <asp:LinkButton OnLoad="msgDel" ID="lnkDelete" CssClass="lnk"  CommandName="Delete" CommandArgument='<%#:Eval("chiTietDHid") %>' Text="" runat="server" >
+                                <asp:image Width="30px" imageurl="../../Images/icon-trash_can.png" runat="server"/>
+                            </asp:LinkButton> 
                         </td>
                 </tr>
             </AlternatingItemTemplate>

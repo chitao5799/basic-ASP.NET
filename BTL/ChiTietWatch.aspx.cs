@@ -55,6 +55,18 @@ namespace BTL
                 listComments.DataBind();
             }
             else ltSoluongComment.Text ="0";
+            avatarUserInputComment.ImageUrl = Session["avatarUser"].ToString();
+        }
+        protected String isHaveLike(Object commentID)
+        {
+            if (int.Parse(Session["userID"].ToString()) != -1)
+            {
+                if (cm.UserHaveLikeComment(int.Parse(Session["userID"].ToString()), int.Parse(commentID.ToString())))
+                    return "<strong style=\"color:blue\">Like</strong>";
+                else return "<span style=\"color:#3c3b3b\">Like</span>"; 
+            }
+            else
+                return "<span style=\"color:#3c3b3b\">Like</span>";
         }
         void LoadDetailProduct()
         {

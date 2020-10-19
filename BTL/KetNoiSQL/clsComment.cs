@@ -41,6 +41,19 @@ namespace BTL.KetNoiSQL
             sqlCom.Parameters.AddWithValue("@comid", commentID);
             connectSQL.ExecuteNoneQuery(sqlCom);
         }
+        public bool UserHaveLikeComment(int userId, int commentID)
+        {
+            SqlCommand sqlCom;
+            sqlCom = new SqlCommand("select * from userLikeComment where userID_pk=@userid and commentID_pk=@comid");
+            sqlCom.CommandType = CommandType.Text;
+            sqlCom.Parameters.AddWithValue("@userid", userId);
+            sqlCom.Parameters.AddWithValue("@comid", commentID);
+            DataTable dt= connectSQL.GetData(sqlCom);
+            if (dt.Rows.Count > 0)
+                return true;
+            else
+                return false;
+        }
         public void UserBoLike(int userId, int commentID)
         {
             SqlCommand sqlCom;

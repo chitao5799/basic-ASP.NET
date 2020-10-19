@@ -165,12 +165,16 @@
     }
 
 .img_comment {
-    padding-top: 20px;
+    /*padding-top: 20px;*/
     width: 50px;
     float: left;
     margin-right: 13px;
 }
-
+.avatarUserInputComment {
+    width: 40px;
+    height: 40px;
+    padding-top: 5px;
+}
 .post_comment button {
     /* margin-left: 810px; */
     width: 60px;

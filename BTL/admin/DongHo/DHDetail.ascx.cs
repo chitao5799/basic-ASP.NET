@@ -38,7 +38,7 @@ namespace BTL.admin.DongHo
         }
         protected void msgDel(object sender, System.EventArgs e)
         {
-            ((ImageButton)sender).Attributes["onclick"] = "return confirm('Bạn có chắc chắn muốn xóa bỏ đồng hồ này?')";
+            ((LinkButton)sender).Attributes["onclick"] = "return confirm('Bạn có chắc chắn muốn xóa bỏ đồng hồ này?')";
         }
 
         long price = 0, quantity =0 , doChiuNuoc=0;

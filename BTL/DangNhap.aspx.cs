@@ -51,6 +51,7 @@ namespace BTL
                     Session["loginAccount"] = txtAccount.Text.Trim();
                     Session["userName"] = tb.Rows[0]["userName"];
                     Session["userID"] = tb.Rows[0]["userID"];
+                    Session["avatarUser"] = "images/" + tb.Rows[0]["urlAvatarPicture"];
                     string url =Session["urlTruocLogin"].ToString();
                     if(url!="" && url.IndexOf("/DangNhap.aspx")==-1 && url.IndexOf("/DangKy.aspx")==-1)
                        Response.Redirect(url);

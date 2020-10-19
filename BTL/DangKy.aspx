@@ -24,32 +24,46 @@
 				
 			</div>
 			<div>
+                <div style="padding-left: 25px;padding-top: 15px;">Lưu ý: <span style="color:red;">*</span> - không được để trống.</div>
 				<div class="nes">
 					<span>Họ tên</span>
                     <asp:TextBox ID="txtHoTen" placeholder="     Nhập họ tên" runat="server"  CssClass="text input"></asp:TextBox>
-				</div>
+				    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ControlToValidate="txtHoTen"
+                    ForeColor="Red" ValidationGroup="checkInputRegister"></asp:RequiredFieldValidator>
+                </div>
+                
 				<div class="nes1">
 					<span>SĐT</span>
                      <asp:TextBox ID="txtSDT" placeholder="     Nhập số điện thoại" runat="server"  CssClass="text input"></asp:TextBox>
-				</div>
+				    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ControlToValidate="txtSDT"
+                    ForeColor="Red" ValidationGroup="checkInputRegister"></asp:RequiredFieldValidator>
+                </div>
 				<div class="nes4">
 					<span>Email</span>
                      <asp:TextBox ID="txtEmail" placeholder="     Nhập email" runat="server"  CssClass="text input"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ControlToValidate="txtEmail"
+                    ForeColor="Red" ValidationGroup="checkInputRegister"></asp:RequiredFieldValidator>
 				</div>
                 <div class="nes4-1">
 					<span>Tài khoản</span>
                      <asp:TextBox ID="txtAccount" placeholder="     Nhập tài khoản" runat="server"  CssClass="text input"></asp:TextBox>
-				</div>
+				     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*" ControlToValidate="txtAccount"
+                    ForeColor="Red" ValidationGroup="checkInputRegister"></asp:RequiredFieldValidator>
+                </div>
 				<div class="nes5">
 					<span>Mật khẩu</span>
                     <asp:TextBox ID="txtPassword" placeholder="     Nhập mật khẩu" runat="server" TextMode="Password"  CssClass="text input"></asp:TextBox>
-				</div>
+				    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*" ControlToValidate="txtPassword"
+                    ForeColor="Red" ValidationGroup="checkInputRegister"></asp:RequiredFieldValidator>
+                </div>
 				<div class="nes6">
 					<span>Giới tính</span>
                      <asp:RadioButtonList ID="RadioBtnGioiTinh" runat="server">
                         <asp:ListItem Selected="False" Value="0">Nam</asp:ListItem>
                         <asp:ListItem Selected="False" Value="1">Nữ</asp:ListItem>
                     </asp:RadioButtonList>
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="*" ControlToValidate="RadioBtnGioiTinh"
+                    ForeColor="Red" ValidationGroup="checkInputRegister"></asp:RequiredFieldValidator>
 				</div>
 				<div class="nes7">
 					<span>Ngày sinh</span>
@@ -60,7 +74,7 @@
 					<span>Nhận các thông tin và chương trình khuyến mãi qua email.</span>
 				</div>
 				<div class="nes9">
-                    <asp:LinkButton ID="btnCreateAccount" runat="server" class="btnCreateAccount" OnClick="btnCreate_Click">Tạo tài khoản</asp:LinkButton>
+                    <asp:LinkButton ValidationGroup="checkInputRegister" ID="btnCreateAccount" runat="server" class="btnCreateAccount" OnClick="btnCreate_Click">Tạo tài khoản</asp:LinkButton>
 				</div>
 				<div class="nes9">
 					<span>Khi bạn nhấn Đăng ký, bạn đã đồng ý thực hiện mọi giao dịch mua bán theo</span>

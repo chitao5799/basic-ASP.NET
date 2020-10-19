@@ -100,6 +100,7 @@
     <Content Include="images\Capture4.PNG" />
     <Content Include="images\Capture7.PNG" />
     <Content Include="images\Capture8.PNG" />
+    <Content Include="images\icon-acc.png" />
     <Content Include="images\logo4.png" />
     <Content Include="style\administrator.css" />
     <Content Include="style\ChiTietWatch.css" />

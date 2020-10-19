@@ -15,6 +15,7 @@ namespace BTL
             Session["loginAccount"] = -1;
             Session["userName"] = "";
             Session["userID"] = -1;
+            Session["avatarUser"] = "images/icon-acc.png";
             Response.Redirect(Session["url"].ToString());
         }
     }

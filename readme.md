@@ -19,7 +19,7 @@ menu item đồng hồ / tìm kiếm
 ![img](https://github.com/chitao5799/basic-ASP.NET/blob/master/picture%20demo/DongHo.png)
 ---
 ---
-![img](https://github.com/chitao5799/basic-ASP.NET/blob/master/picture%20demo/chitiet.png)
+![img](https://github.com/chitao5799/basic-ASP.NET/blob/master/picture%20demo/chitiet2.png)
 ---
 ---
 ![img](https://github.com/chitao5799/basic-ASP.NET/blob/master/picture%20demo/giohang.png)
